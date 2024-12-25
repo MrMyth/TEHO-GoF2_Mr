@@ -276,7 +276,7 @@ void StartDialogWithMainCharacter()
 bool LoadDialogFiles(string dialogPath)
 {
 	//FullDialogPath = "dialogs/" + dialogPath;
-	FullDialogPath = "dialogs\" + LanguageGetLanguage() + "\" + dialogPath;
+	FullDialogPath = "dialogs\" + dialogPath;
 
 	// Выбор директории с языковыми файлами
 	//string sLanguageDir = "dialogs\" + LanguageGetLanguage() + "\";

@@ -199,9 +199,6 @@ void InitInterfaceTables()
 	Interfaces[INTERFACE_DEBUGER].SectionName = "interface\debuger.c";
 	Interfaces[INTERFACE_DEBUGER].IniFile     = "RESOURCE\INI\INTERFACES\debuger.ini";
 	
-	Interfaces[INTERFACE_BOAL_BETA].SectionName = "interface\boal_beta.c";
-	Interfaces[INTERFACE_BOAL_BETA].IniFile = "RESOURCE\INI\INTERFACES\boal_beta.ini";
-	
 	Interfaces[INTERFACE_CARDSGAME].SectionName = "interface\boal_cards.c";
 	Interfaces[INTERFACE_CARDSGAME].IniFile = "RESOURCE\INI\INTERFACES\boal_cards.ini";
 	

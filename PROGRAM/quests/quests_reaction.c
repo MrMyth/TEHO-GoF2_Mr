@@ -9,25 +9,12 @@ void QuestComplete(string sQuestName, string qname)
 	string  attrName, Model, Blade, Gun, sTemp, sQuestTown, sQuestTitle; // любые строки для вычислений
 	bool   bOk;
 	int iChurchGenBanditsCount;
-	if (bQuestLogShow)
-    {
-	    Log_Info("Quest completed : " + sQuestName + "  param = " + qname);
-		trace("Quest completed : " + sQuestName + "  param = " + qname + " " + GetQuestBookDataDigit());
-	}
-	// boal <--
-	if (CheckAttribute(pchar, "quest." + qname + ".function"))
-	{
-		string sFunction = pchar.quest.(qname).function;
-		call sFunction(qname);
-		return;
-	}
 
 	switch(sQuestName)
 	{	
 		// boal -->
 		// смена отношений от времени
         // boal все теперь проверяется 15-25 день при расчете состояния мира = изменение в 5% - ранд(100) > 95
-
 		case "recharge_colonypopulation_quest":
 			pchar.colonypopulationlock = true;
 			RechargeColonyPopulationUp();
@@ -631,7 +618,7 @@ void QuestComplete(string sQuestName, string qname)
 		break;
 
         case "God_hit_us": // это такой прикол - задействовать в ловушки для сундуков(boal)
-			iTemp = 10+rand(15);
+		iTemp = 10+rand(15);
 			if ((MakeInt(pchar.chr_ai.hp)-iTemp) > 0)
             {
     			LAi_SetActorType(PChar);

@@ -288,15 +288,12 @@ void WorldSituationsUpdate()
 //////////////////////////////// начало игры - туториал ////////////////////////////////
 void Tut_StartGame(string sQuest)
 {
-	// Reinit sound (bug fix)
-	DeleteClass(&sound);
-	ResumeAllSounds();
 
 	DeleteWeatherEnvironment();
 	CreateSea(EXECUTE, REALIZE);
 	Whr_UpdateWeather();
-	SetEventHandler("frame", "LoadNextWeather_frame", 1); // Hacky solution, but I'm out of ideas for now (rare starting deck weather bug)
-	Statistic_AddValue(PChar, "Cheats.F9", 1);
+	//SetEventHandler("frame", "LoadNextWeather_frame", 1); // Hacky solution, but I'm out of ideas for now (rare starting deck weather bug)
+//	Statistic_AddValue(PChar, "Cheats.F9", 1);
 
     InterfaceStates.Buttons.Save.enable = false;
 	StartQuestMovie(true, true, true);

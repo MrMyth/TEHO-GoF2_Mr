@@ -208,11 +208,6 @@ int GenerateShipExt(int iBaseType, bool isLock, ref chr)
 	if (!CheckAttribute(rRealShip, "isFort"))
 	{
 		int iCaliber = sti(rRealShip.MaxCaliber);
-
-		if(!CheckAttribute(rRealShip, "Class")){
-			trace("Error: Ship with Base Type " + iBaseType + " has no Class attribute");
-		}
-
 		if (sti(rRealShip.Class) != 6 && !CheckAttribute(rRealShip, "QuestShip"))
 		{  // чтоб не было баркаса с 16ф
 			switch(iCaliber)
@@ -581,11 +576,7 @@ int CreateBaseShip(int iBaseType)
     }
 	rRealShip.ship.upgrades.sails = 1;
 	
-	if(!CheckAttribute(rRealShip, "name")){
-		trace("Ship name not defined for ship base type " + iBaseType);
-	}
     rRealShip.BaseName = rRealShip.name; // запоминалка для нужд, тк далее идет "странное"
-
 	if (rRealShip.name != "Fort" && rRealShip.name != "Boat") // не знаю зачем :(
 	{
 		rRealShip.name = rRealShip.name + "1"; // без этого вылет, но почему!!!!!!!!!!!!!!

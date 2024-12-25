@@ -233,15 +233,6 @@ void LaunchDebuderMenu()
 	}
 }
 
-void LaunchBoalBetaScreen()
-{
-	if(procInterfacePrepare(INTERFACE_BOAL_BETA))
-	{
-		nPrevInterface = -1;
-		CurrentInterface = INTERFACE_BOAL_BETA;
-		InitInterface(Interfaces[CurrentInterface].IniFile);
-	}
-}
 // boal <--
 
 /*
@@ -503,17 +494,10 @@ void LaunchGameMenuContinue()
 	{
 		nPrevInterface = -1;
 		CurrentInterface = INTERFACE_GAMEMENU;
-		if(LanguageGetLanguage() != "Russian")
-		{
-			InitInterface_GM(Interfaces[CurrentInterface].ENG_IniFile);
-		}
-		else
-		{
-			InitInterface_GM(Interfaces[CurrentInterface].IniFile);
+		InitInterface_GM(Interfaces[CurrentInterface].IniFile);
 		}
 		//InitInterface_GM(Interfaces[CurrentInterface].IniFile);
 	}
-}
 
 void CreateScreenShoter()
 {
@@ -2021,7 +2005,7 @@ void StartLanguageSetting(string lngID)
 {
 	if(lngID!="") LanguageSetLanguage(lngID);
 
-	string segmentName = "Characters\" + LanguageGetLanguage() + "\Characters_names.c";
+	string segmentName = "Characters\Names\Characters_names.c";
 	if( LoadSegment(segmentName) )
 	{
 		InitCharactersNames();
@@ -2030,7 +2014,7 @@ void StartLanguageSetting(string lngID)
 		Trace("Error! Can`t Load Segment: " + segmentName);
 	}
 
-	segmentName = "Characters\" + LanguageGetLanguage() + "\Pirates_names.c";
+	segmentName = "Characters\Names\Pirates_names.c";
 	if( LoadSegment(segmentName) )
 	{
 		InitPiratesNames();
@@ -2039,7 +2023,7 @@ void StartLanguageSetting(string lngID)
 		Trace("Error! Can`t Load Segment: " + segmentName);
 	}
 
-	segmentName = "Characters\" + LanguageGetLanguage() + "\Indian_names.c";
+	segmentName = "Characters\Names\Indian_names.c";
 	if( LoadSegment(segmentName) )
 	{
 		InitIndianNames();
@@ -2048,7 +2032,7 @@ void StartLanguageSetting(string lngID)
 		Trace("Error! Can`t Load Segment: " + segmentName);
 	}
 
-	segmentName = "Characters\" + LanguageGetLanguage() + "\Generator_names.c";
+	segmentName = "Characters\Names\Generator_names.c";
 	if( LoadSegment(segmentName) )
 	{
 		InitGeneratorNames();
@@ -2057,7 +2041,7 @@ void StartLanguageSetting(string lngID)
 		Trace("Error! Can`t Load Segment: " + segmentName);
 	}
 	
-	segmentName = "Ships\" + LanguageGetLanguage() + "\ships_name.c";
+	segmentName = "Ships\Names\ships_name.c";
 	if ( LoadSegment(segmentName) )
 	{
 		InitRandomShipsNames();
@@ -2066,7 +2050,7 @@ void StartLanguageSetting(string lngID)
 		Trace("Error! Can`t Load Segment: " + segmentName);
 	}
 
-	segmentName = LanguageGetLanguage() + "\Greetings_alias.ini";
+	segmentName = "Greetings_alias.ini";
 	SendMessage( &Sound, "ls", MSG_SOUND_ALIAS_ADD,  segmentName);
 	//SendMessage( &Sound, "ls", MSG_SOUND_ALIAS_ADD, LanguageGetLanguage() + "\talk_" + LanguageGetLanguage() + ".lng" );
 }
